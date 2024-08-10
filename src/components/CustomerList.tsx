@@ -12,6 +12,9 @@ const CustomerList: React.FC = () => {
         fetchCustomers(10)
         .then(data => {
             setCustomers(data);
+            if (data.length > 0) {
+                setSelectedCustomer(data[0]);
+            }
         })
         .catch(error => {
             console.error('Failed to fetch customers:', error);
